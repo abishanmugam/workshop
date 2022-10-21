@@ -1,25 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import Primarybtn from './Primarybtn.js';
+import MainInput from './MainInput';
 
-function App() {
+const App = () => {
+  const [name, setName] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MainInput setName={setName} />
+      <br />
+      {name}
+      {name === 'Go' ? (
+        <Primarybtn fullname="go" />
+      ) : (
+        <Primarybtn fullname="Submit" />
+      )}
     </div>
   );
-}
+};
 
 export default App;
